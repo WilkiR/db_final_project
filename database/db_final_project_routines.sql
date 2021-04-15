@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: db_final_project
 -- ------------------------------------------------------
@@ -16,27 +16,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `msg_format`
+-- Dumping events for database 'db_final_project'
 --
 
-DROP TABLE IF EXISTS `msg_format`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `msg_format` (
-  `format` varchar(9) NOT NULL,
-  PRIMARY KEY (`format`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
 --
--- Dumping data for table `msg_format`
+-- Dumping routines for database 'db_final_project'
 --
-
-LOCK TABLES `msg_format` WRITE;
-/*!40000 ALTER TABLE `msg_format` DISABLE KEYS */;
-INSERT INTO `msg_format` VALUES ('GIF'),('LOCATION'),('PHOTO'),('TEXT'),('VIDEO');
-/*!40000 ALTER TABLE `msg_format` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -47,4 +32,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-14 23:16:49
+-- Dump completed on 2021-04-15  1:47:31

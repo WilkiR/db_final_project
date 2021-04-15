@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: db_final_project
 -- ------------------------------------------------------
@@ -24,14 +24,14 @@ DROP TABLE IF EXISTS `users_to_conversations`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users_to_conversations` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `user` int DEFAULT NULL,
-  `conversation` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `conversation_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `user_id_idx` (`user`),
-  KEY `conversation_id_idx` (`conversation`),
-  CONSTRAINT `conversation_id` FOREIGN KEY (`conversation`) REFERENCES `conversation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `user_id` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `user_id_idx` (`user_id`),
+  KEY `conversation_id_idx` (`conversation_id`),
+  CONSTRAINT `conversation_id` FOREIGN KEY (`conversation_id`) REFERENCES `conversation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-14 23:16:49
+-- Dump completed on 2021-04-15  1:47:31
