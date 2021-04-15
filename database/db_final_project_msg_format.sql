@@ -16,29 +16,25 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `conversation`
+-- Table structure for table `msg_format`
 --
 
-DROP TABLE IF EXISTS `conversation`;
+DROP TABLE IF EXISTS `msg_format`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `conversation` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `notification` tinyint DEFAULT NULL,
-  `chat_photo` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
+CREATE TABLE `msg_format` (
+  `format` varchar(9) NOT NULL,
+  PRIMARY KEY (`format`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `conversation`
+-- Dumping data for table `msg_format`
 --
 
-LOCK TABLES `conversation` WRITE;
-/*!40000 ALTER TABLE `conversation` DISABLE KEYS */;
-/*!40000 ALTER TABLE `conversation` ENABLE KEYS */;
+LOCK TABLES `msg_format` WRITE;
+/*!40000 ALTER TABLE `msg_format` DISABLE KEYS */;
+/*!40000 ALTER TABLE `msg_format` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-14 22:21:31
+-- Dump completed on 2021-04-14 22:21:30

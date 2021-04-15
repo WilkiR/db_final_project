@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `message`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `message` (
   `id` int NOT NULL,
-  `body` varchar(256) DEFAULT NULL,
+  `format` varchar(9) DEFAULT NULL,
   `created` datetime DEFAULT CURRENT_TIMESTAMP,
   `user_id` int DEFAULT NULL,
   `conversation_id` int DEFAULT NULL,
@@ -32,8 +32,10 @@ CREATE TABLE `message` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `sender_id_idx` (`user_id`),
   KEY `chat_id_idx` (`conversation_id`),
-  CONSTRAINT `chat_id` FOREIGN KEY (`conversation_id`) REFERENCES `conversation` (`id`),
-  CONSTRAINT `sender_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+  KEY `enumerated_format_idx` (`format`),
+  CONSTRAINT `chat_id` FOREIGN KEY (`conversation_id`) REFERENCES `conversation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `enumerated_format` FOREIGN KEY (`format`) REFERENCES `msg_format` (`format`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `sender_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-09  1:20:44
+-- Dump completed on 2021-04-14 22:21:30
