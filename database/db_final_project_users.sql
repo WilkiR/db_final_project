@@ -29,7 +29,7 @@ CREATE TABLE `users` (
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `phone_number` int DEFAULT NULL,
+  `phone_number` varchar(11) DEFAULT NULL,
   `date_of_birth` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
