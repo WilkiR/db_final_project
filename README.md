@@ -16,10 +16,10 @@ This application has the base functionality of a chat app. Our _users_ make _con
 #**5. Link to UML Model** 
 [UML Model](db_design_final_project_UML.pdf)
 
-#**6. User Model ** 
+#**6. User Model** 
 Our _user_ is used to describe the user interacting with the application. Besides the required fields from the assignment, we included an integer attribute _phone_number_, representing the user's phone number.
 
-#**7. Domain Objects ** 
+#**7. Domain Objects** 
 The first domain object is a _conversation_ which contains a **name**, a flag to show if the conversation **is_group_chat**, and a **chat photo**, recorded as a link, to represent the groups image. This domain object represents the groups of users that will be able to chat with one other.
 
 The second domain object is the _message_ which contains a _format_, a **body**,. a **created** timestamp. This object is sent by a _user_ to a _conversation_ for the other users of the group to view.
