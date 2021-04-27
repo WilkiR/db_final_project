@@ -10,9 +10,9 @@ import java.util.List;
 
 public interface MessageRepository
         extends CrudRepository<Message, Integer> {
-    @Query(value = "SELECT * FROM message WHERE user_id=:uid", nativeQuery = true)
+    @Query(value = "SELECT * FROM messages WHERE user_id=:uid", nativeQuery = true)
     public List<Message> findMessagesForUser(@Param("uid") Integer uid);
 
-    @Query(value = "SELECT * FROM message WHERE conversation_id=:cid", nativeQuery = true)
+    @Query(value = "SELECT * FROM messages WHERE conversation_id=:cid", nativeQuery = true)
     public List<Message> findMessagesForConversation(@Param("cid") Integer cid);
 }

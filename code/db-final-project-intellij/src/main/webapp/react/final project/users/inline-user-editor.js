@@ -3,6 +3,7 @@ const {Link} = window.ReactRouterDOM;
 
 const InlineUserEditor = ({user, deleteUser, updateUser}) => {
     const [userCopy, setUserCopy] = useState(user)
+    const[conversationCopy] = useState({})
     const [editing, setEditing] = useState(false)
     return(
         <div>
@@ -27,8 +28,14 @@ const InlineUserEditor = ({user, deleteUser, updateUser}) => {
                             value={userCopy.username}
                             onChange={(e)=>setUserCopy(userCopy => ({...userCopy, username: e.target.value}))}/>
                     </div>
+                    <div className="col">
+                        <input
+                            className="form-control"
+                            value={userCopy.phoneNumber}
+                            onChange={(e)=>setUserCopy(userCopy => ({...userCopy, phoneNumber: e.target.value}))}/>
+                    </div>
                     <div className="col-1">
-                        <Link to={`/users/${userCopy.id}/message`}>
+                        <Link to={`/users/${userCopy.id}/conversations/${conversationCopy.id}/messages`}>
                             Messages
                         </Link>
                     </div>
@@ -38,8 +45,8 @@ const InlineUserEditor = ({user, deleteUser, updateUser}) => {
                                setEditing(false)
                                updateUser(userCopy.id, userCopy)
                            }}></i>
-                        <i className="fas fa-2x fa-undo float-right margin-left-10px"
-                           onClick={() => setEditing(false)}></i>
+                        {/*<i className="fas fa-2x fa-undo float-right margin-left-10px"*/}
+                        {/*   onClick={() => setEditing(false)}></i>*/}
                         <i className="fas fa-2x fa-trash float-right margin-left-10px"
                            onClick={() => deleteUser(user.id)}></i>
                     </div>
@@ -63,8 +70,13 @@ const InlineUserEditor = ({user, deleteUser, updateUser}) => {
                             {userCopy.username}
                         </Link>
                     </div>
+                    <div className="col">
+                        <Link to={`/users/${userCopy.id}`}>
+                            {userCopy.phoneNumber}
+                        </Link>
+                    </div>
                     <div className="col-1">
-                        <Link to={`/users/${userCopy.id}/message`}>
+                        <Link to={`/users/${userCopy.id}/conversations/${conversationCopy.id}/messages`}>
                             Messages
                         </Link>
                     </div>

@@ -28,12 +28,12 @@ public class MessageOrmDao {
     @Autowired
     UserRepository userRepository;
 
-    @PostMapping("/api/message")
+    @PostMapping("/api/messages")
     public Message createMessage(@RequestBody Message message) {
         return messageRepository.save(message);
     }
 
-    @PostMapping("/api/users/{uid}/message")
+    @PostMapping("/api/users/{uid}/messages")
     public Message createMessageForUser(
             @PathVariable("uid") Integer uid,
             @RequestBody Message message) {
@@ -43,40 +43,40 @@ public class MessageOrmDao {
         return messageRepository.save(message);
     }
 
-    @PostMapping("/api/conversation/{conversationId}/{userId}/message")
-    public Message createMessageForConversationAndUser(
-            @PathVariable("conversationId") Integer cid,
-            @PathVariable("userId") Integer uid,
+    @PostMapping("/api/conversations/{cid}/messages")
+    public Message createMessageForConversation(
+            @PathVariable("cid") Integer cid,
             @RequestBody Message message) {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         message.setConversationId(cid);
-        message.setUserId(uid);
+        message.setCreated(timestamp.toString());
         return messageRepository.save(message);
     }
 
-    @GetMapping("/api/conversation/{cid}/message")
+    @GetMapping("/api/conversations/{cid}/messages")
     public List<Message> findMessagesForConversation(
             @PathVariable("cid") Integer conversationId) {
         return messageRepository.findMessagesForConversation(conversationId);
     }
 
-    @GetMapping("/api/users/{uid}/message")
+    @GetMapping("/api/users/{uid}/messages")
     public List<Message> findMessagesForUser(
             @PathVariable("uid") Integer uid) {
         return messageRepository.findMessagesForUser(uid);
     }
 
-    @GetMapping("/api/message")
+    @GetMapping("/api/messages")
     public List<Message> findAllMessages() {
         return (List<Message>) messageRepository.findAll();
     }
 
-    @GetMapping("/api/message/{messageId}")
+    @GetMapping("/api/messages/{messageId}")
     public Message findMessageById(
             @PathVariable("messageId") Integer id) {
         return messageRepository.findById(id).get();
     }
 
-    @PutMapping("/api/message/{messageId}")
+    @PutMapping("/api/messages/{messageId}")
     public Message updateMessage(
             @PathVariable("messageId") Integer id,
             @RequestBody() Message newMessage) {
@@ -90,7 +90,7 @@ public class MessageOrmDao {
         return messageRepository.save(message);
     }
 
-    @DeleteMapping("/api/message/{messageId}")
+    @DeleteMapping("/api/messages/{messageId}")
     public void deleteMessage(
             @PathVariable("messageId") Integer id) {
         messageRepository.deleteById(id);

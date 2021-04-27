@@ -14,34 +14,34 @@ public class ConversationOrmDao {
     @Autowired
     ConversationRepository conversationRepository;
 
-    @PostMapping("/api/conversation")
+    @PostMapping("/api/conversations")
     public Conversation createConversation(@RequestBody Conversation conversation) {
         return conversationRepository.save(conversation);
     }
     
-    @GetMapping("/api/conversation")
+    @GetMapping("/api/conversations")
     public List<Conversation> findAllConversations() {
         return (List<Conversation>) conversationRepository.findAll();
     }
     
-    @GetMapping("/api/conversation/{conversationId}")
+    @GetMapping("/api/conversations/{conversationId}")
     public Conversation findConversationById(
             @PathVariable("conversationId") Integer id) {
         return conversationRepository.findById(id).get();
     }
 
-    @PutMapping("/api/conversation/{conversationId}")
+    @PutMapping("/api/conversations/{conversationId}")
     public Conversation updateConversation(
             @PathVariable("conversationId") Integer id,
             @RequestBody() Conversation newConversation) {
         Conversation conversation = this.findConversationById(id);
         conversation.setName(newConversation.getName());
-        conversation.setNotification(newConversation.getNotification());
+        conversation.setIsGroupChat(newConversation.getIsGroupChat());
         conversation.setChat_photo(newConversation.getChat_photo());
         return conversationRepository.save(conversation);
     }
 
-    @DeleteMapping("/api/conversation/{conversationId}")
+    @DeleteMapping("/api/conversations/{conversationId}")
     public void deleteConversation(
             @PathVariable("conversationId") Integer id) {
         conversationRepository.deleteById(id);

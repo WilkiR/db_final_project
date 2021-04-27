@@ -1,4 +1,4 @@
-const CONVERSATION_URL = "http://localhost:8080/api/conversation"
+const CONVERSATION_URL = "http://localhost:8080/api/conversations"
 
 export const createConversation = (conversation) =>
     fetch(CONVERSATION_URL, {

@@ -1,33 +1,33 @@
-const CONVERSATION_URL = "http://localhost:8080/api/conversation"
-const MESSAGE_URL = "http://localhost:8080/api/message"
+const CONVERSATION_URL = "http://localhost:8080/api/conversations"
+const MESSAGE_URL = "http://localhost:8080/api/messages"
 const USERS_URL = "http://localhost:8080/api/users"
 
 // TODO: retrieve all users from the server
 export const findAllMessages = () => fetch(MESSAGE_URL) .then(response => response.json())
 {}
 
-export const createMessageForUser = (userId, blog) => {
-    return fetch(`${USERS_URL}/${userId}/message`, {
+export const createMessageForUser = (userId, message) => {
+    return fetch(`${USERS_URL}/${userId}/messages`, {
         method: 'POST',
-        body: JSON.stringify(blog),
+        body: JSON.stringify(message),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 }
-// export const createMessageForConversationAndUser = (conversationId, userId, message) =>
-//     fetch(`${CONVERSATION_URL}/${conversationId}/${userId}/message`, {
-//         method: 'POST',
-//         body: JSON.stringify(message),
-//         headers: {'content-type': 'application/json'}
-//     })
-//     .then(response => response.json())
+export const createMessageForConversation = (conversationId, message) =>
+    fetch(`${CONVERSATION_URL}/${conversationId}/messages`, {
+        method: 'POST',
+        body: JSON.stringify(message),
+        headers: {'content-type': 'application/json'}
+    })
+    .then(response => response.json())
 
 export const findMessagesForConversation = (conversationId) =>
-    fetch(`${CONVERSATION_URL}/${conversationId}/message`)
+    fetch(`${CONVERSATION_URL}/${conversationId}/messages`)
         .then(response => response.json())
 
 export const findMessagesForUser = (userId) => {
-    return fetch(`${USERS_URL}/${userId}/message`)
+    return fetch(`${USERS_URL}/${userId}/messages`)
         .then(response => response.json())
 }
 export const findMessageById = (id) =>
@@ -50,7 +50,7 @@ const deleteMessage = (id) =>
 export default {
     findAllMessages,
     createMessageForUser,
-    // createMessageForConversationAndUser,
+    createMessageForConversation,
     findMessagesForConversation,
     findMessagesForUser,
     findMessageById,

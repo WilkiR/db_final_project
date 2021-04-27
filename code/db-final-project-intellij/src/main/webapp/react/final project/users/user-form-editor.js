@@ -2,7 +2,7 @@ import userService from "./user-service"
 const {useState, useEffect} = React;
 const {useParams, useHistory, Link} = window.ReactRouterDOM;
 const UserFormEditor = () => {
-    const {id} = useParams()
+    const {conversationId, id} = useParams()
     const [user, setUser] = useState({})
         useEffect(() => {
             if(id !== "new") {
@@ -36,17 +36,17 @@ const UserFormEditor = () => {
             <input className="form-control" onChange={(e) => setUser(user => ({...user, dateOfBirth: e.target.value}))} value={user.dateOfBirth}/>
 
 
-            <Link to={`/users/${id}/message`}
+            <Link to={`/users/${id}/conversations/${conversationId}/messages`}
                   className="btn btn-primary btn-block"
                   style={{width: "100%"}}>
-                Messages
+                Messages for User
             </Link>
 
             <br/>
             <br/>
             <button className="btn btn-warning" onClick={() => {history.push("/")}}>Cancel</button>
             <button className="btn btn-danger" onClick={() => deleteUser(user.id)}>Delete</button>
-            <button className="btn btn-primary" onClick={() => updateUser(user.id, user)}>Save</button>
+            <button className="btn btn-primary" onClick={() => updateUser(user.id, user) }>Save</button>
             <button className="btn btn-success" onClick={() => createUser(user)}>Create</button>
         </div>
     )

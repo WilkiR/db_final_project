@@ -6,14 +6,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="conversation")
+@Table(name="conversations")
 public class Conversation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     @Column(columnDefinition="tinyint(1) default 1")
-    private Boolean notification;
+    private Boolean isGroupChat;
     private String chat_photo;
     
 //    @OneToMany(mappedBy = "conversation")
@@ -44,12 +44,12 @@ public class Conversation {
         this.name = name;
     }
 
-    public Boolean getNotification() {
-        return notification;
+    public Boolean getIsGroupChat() {
+        return isGroupChat;
     }
 
-    public void setNotification(Boolean notification) {
-        this.notification = notification;
+    public void setIsGroupChat(Boolean isGroupChat) {
+        this.isGroupChat = isGroupChat;
     }
 
     public String getChat_photo() {
@@ -60,12 +60,12 @@ public class Conversation {
         this.chat_photo = chat_photo;
     }
 
-    public Conversation(String name, Boolean notification, String chat_photo) {
-        this.name = name;
-        this.notification = notification;
-        this.chat_photo = chat_photo;
-    }
-
-    public Conversation() {}
+//    public Conversation(String name, Boolean notification, String chat_photo) {
+//        this.name = name;
+//        this.notification = notification;
+//        this.chat_photo = chat_photo;
+//    }
+//
+//    public Conversation() {}
 
 }

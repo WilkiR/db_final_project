@@ -3,9 +3,9 @@ import messageService from "./message-service"
 const { useState, useEffect } = React;
 const { useParams, Link } = window.ReactRouterDOM;
 
-const MessageList = () => {
+const UserMessageList = () => {
     const [messages, setMessages] = useState([])
-    const { userId } = useParams();
+    const { conversationId, userId } = useParams();
     useEffect(() => {
         findMessagesForUser(userId)
     }, [])
@@ -20,9 +20,9 @@ const MessageList = () => {
                     <i className="fas fa-arrow-left"></i>
                 </Link> Messages
             </h2>
-            <Link to={`/users/${userId}/message/new`}
+            <Link to={`/users/${userId}/conversations/${conversationId}/messages/new`}
                   className="btn btn-primary">
-                Add
+                Add Message
             </Link>
             <br/>
             <br/>
@@ -30,10 +30,11 @@ const MessageList = () => {
                 {
                     messages.map(message =>
                         <li key={message.id} className="list-group-item">
-                            <Link to={`/users/${userId}/message/${message.id}`}>
+                            <Link to={`/users/${userId}/conversations/${conversationId}/messages/${message.id}`}>
                                 {message.format},
                                 {message.body},
-                                {message.created}
+                                {message.created},
+                                {message.conversationId}
                             </Link>
                         </li>)
                 }
@@ -42,12 +43,12 @@ const MessageList = () => {
     )
 }
 
-export default MessageList;
+export default UserMessageList;
 // import messageService from "./message-service"
 // const { useState, useEffect } = React;
 // const {Link, useParams, useHistory} = window.ReactRouterDOM;
 //
-// const MessageList = () => {
+// const UserMessageList = () => {
 //     const [messages, setMessages] = useState([])
 //     useEffect(() => {
 //         findAllMessages()
@@ -82,4 +83,4 @@ export default MessageList;
 //     )
 // }
 //
-// export default MessageList;
+// export default UserMessageList;

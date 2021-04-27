@@ -1,6 +1,6 @@
 import conversationService from "./conversation-service"
 const {useState, useEffect} = React
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {useParams, useHistory, Link} = window.ReactRouterDOM;
 
 const ConversationEditorForm = () => {
     const {id} = useParams()
@@ -23,12 +23,18 @@ const ConversationEditorForm = () => {
             <input className="form-control" value={conversation.id}/><br/>
             <label>Name</label>
             <input className="form-control" onChange={(e) => setConversation(conversation => ({...conversation, name: e.target.value}))} value={conversation.name}/><br/>
-            <label>Notification</label>
-            <input className="form-control" onChange={(e) => setConversation(conversation => ({...conversation, notification: e.target.value}))} value={conversation.notification}/><br/>
+            <label>Is this conversation a group chat?</label>
+            <input className="form-control" onChange={(e) => setConversation(conversation => ({...conversation, isGroupChat: e.target.value}))} value={conversation.isGroupChat}/><br/>
             <label>Chat Photo</label>
-            <input className="form-control" onChange={(e) => setConversation(conversation => ({...conversation, chat_photo: e.target.value}))} value={conversation.chat_photo}/><br/>
+            <input className="form-control" onChange={(e) => setConversation(conversation => ({...conversation, chat_photo: e.target.value}))} value={conversation.chat_photo}/>
+            <Link to={`/conversations/${id}/messages`}
+                  className="btn btn-primary btn-block"
+                  style={{width: "100%"}}>
+                Messages for Conversation
+            </Link>
             <br/>
-            <button className="btn btn-warning" onClick={() => {history.goBack()}}>Cancel</button>
+            <br/>
+            <button className="btn btn-warning" onClick={() => {history.push("/")}}>Cancel</button>
             <button className="btn btn-danger" onClick={() => deleteConversation(conversation.id)}>Delete</button>
             <button className="btn btn-primary" onClick={() => updateConversation(conversation.id, conversation)}>Save</button>
             <button className="btn btn-success" onClick={() => createConversation(conversation)}>Create</button>

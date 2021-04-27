@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name="message")
+@Table(name="messages")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
