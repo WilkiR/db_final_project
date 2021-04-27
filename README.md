@@ -69,6 +69,7 @@ To add a user:
 - Leave _'Id'_ blank
 - Fill in whatever values for all the other fields. (Can't be null)
 - Note: 
+    - All string values cannot exceed 45 characters unless otherwise specified.
     - Phone Number can not exceed 11 digits. 
     - Date of Birth must be formatted as: _YYYY - MM - DD_
 
