@@ -16,26 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `msg_format`
+-- Table structure for table `msg_formats`
 --
 
-DROP TABLE IF EXISTS `msg_format`;
+DROP TABLE IF EXISTS `msg_formats`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `msg_format` (
+CREATE TABLE `msg_formats` (
   `format` varchar(9) NOT NULL,
   PRIMARY KEY (`format`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `msg_format`
+-- Dumping data for table `msg_formats`
 --
 
-LOCK TABLES `msg_format` WRITE;
-/*!40000 ALTER TABLE `msg_format` DISABLE KEYS */;
-INSERT INTO `msg_format` VALUES ('GIF'),('LOCATION'),('PHOTO'),('TEXT'),('VIDEO');
-/*!40000 ALTER TABLE `msg_format` ENABLE KEYS */;
+LOCK TABLES `msg_formats` WRITE;
+/*!40000 ALTER TABLE `msg_formats` DISABLE KEYS */;
+INSERT INTO `msg_formats` VALUES ('GIF'),('LOCATION'),('PHOTO'),('TEXT'),('VIDEO');
+/*!40000 ALTER TABLE `msg_formats` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-17 20:05:48
+-- Dump completed on 2021-04-26 23:54:42
