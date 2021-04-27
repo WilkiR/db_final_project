@@ -1,5 +1,5 @@
 # **CS3200: Database Design Final Project**
-This file contains the the required information pertaining to our deliverables.
+This file contains the the required information pertaining to our deliverables. Included are the general information about our project, the steps to setting up out project on you device, as steps to interacting with the interface.
 ### 1. Project Name:
 Chat App
 ### 2. Team:
@@ -38,6 +38,15 @@ Our portable enumeration, _format_ is used within the _message_ object to descri
 **_Message Editor_** - Displays a particular message for editing or allows creating a new message, and navigate to the user or conversation using a return arrow. When creating/updating a message, the **created** field is updated to the system's current time.
 
 If a _message_ is related to a _conversation_, then the _user_ should be able to navigate from a particular _message_ record to the _converstaion_ related to that _message_. If a user is related to a _conversation_, then the _user_ should be able to navigate from a particular _user_ record to the _converstaion_ related to that _user_.
+
+### P3 Text Portion
+#### Problem statement
+When using a group messaging system, it is very easy to see all the messages located in a chat you are in. The bigger issues is trying to list all the messages sent by a person. #### Solution statement
+Our project allows users to filter messages not only by the conversations they are in, but by the user that they were sent by. Now it is easier than ever to see all the messages a user has ever sent.
+#### Users of this application
+This solution can be applied by social media developers. This data pertaining to the messages sent by a user can be translated onto a user's profile, such as the way it is implemented on social media like Twitter. The everyday users who would populate the database would we the app consumers who actually user the social media.
+#### Domain objects
+The two domain objects used in this soltuion were the _conversation_ and _message_ objects. The conversation object tracks all the messages sent in that specific chat, and the messages contain data pertaining to that message sent by a user. From a message, we are able to route it back to a user and a conversation.
 
 ## **Repo Contents:**
 Please read below to understand the contents of the repo and for the steps to run our system
