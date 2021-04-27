@@ -72,6 +72,12 @@ To add a user:
     - All string values cannot exceed 45 characters unless otherwise specified.
     - Phone Number can not exceed 11 digits. 
     - Date of Birth must be formatted as: _YYYY - MM - DD_
+- Click _'Create'_ (not _'Save'_)
+
+To edit a user:
+- Navigate to the user to be edited.
+- Update the fields as wanted, following the same restrictions as mentioned above.
+- Click _'Save'_.
 
 To delete a user:
 - Option 1:
@@ -87,6 +93,12 @@ To add a conversation:
 - Fill in whatever values for all the other fields. (Can't be null)
 - Note: 
     - For the field _'Is this conversation a group chat?'_ , you must answer _true_ or _false_
+- Click _'Create'_ (not _'Save'_)
+
+To edit a conversation:
+- Navigate to the conversation to be edited.
+- Update the fields as wanted, following the same restrictions as mentioned above.
+- Click _'Save'_.
 
 To delete a conversation:
 - Option 1:
@@ -97,15 +109,21 @@ To delete a conversation:
     - Click the trash can icon.
 
 To add a message:
-- Naviagte to a message by clicking the _'Message'_ link next to either user or conversation.
+- Navigate to a message by clicking the _'Message'_ link next to either user or conversation.
 - Click the "Add Message" button under the Message List title
 - Leave _'Id'_ and _'Created'_ blank
 - Fill in whatever values for all the other fields. (Can't be null)
 - Note: 
     - For _'Format'_, choose any item from the drop down menu (besides the default)
+- Click _'Create'_ (not _'Save'_)
+
+To edit a message:
+- Navigate to the message to be edited.
+- Update the fields as wanted, following the same restrictions as mentioned above.
+- Click _'Save'_.
 
 To delete a message:
-- Naviagte to the message editor screen for the message you want to find.
+- Navigate to the message editor screen for the message you want to find.
     - Note: You will have to know either the user or the conversation that the message will be listed under. 
 - From the editor screen for the message, click _'Delete'_.
 
