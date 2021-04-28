@@ -63,7 +63,7 @@ Open the project in Intellij and navigate to the following folder:
 
 Run the **'DemoApplication'** to  connect to the server. Then  navigate to:
 
-    db-final-project-intellij > src > main > webapp
+    db-final-project-intellij > src > main > webapp > react > final project
 
 Run **index.html** in Chrome to test our interface.
 
